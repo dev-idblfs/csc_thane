@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "509074492875",
+    "firebase_url": "https://idblfs-csc-thane.firebaseio.com",
+    "project_id": "idblfs-csc-thane",
+    "storage_bucket": "idblfs-csc-thane.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:509074492875:android:efcdbc61833fd9b8dafa4e",
+        "android_client_info": {
+          "package_name": "com.idblfs.cscthane"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "509074492875-8200h2kp1frls0sfubmbp832pvuimckl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCqQwN95GskVa2oHnJqHEeh7zwQEibHfoU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "509074492875-8200h2kp1frls0sfubmbp832pvuimckl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
