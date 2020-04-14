@@ -1,12 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="AndroidLayouts">
-    <shared>
-      <config />
-    </shared>
-  </component>
   <component name="ChangeListManager">
-    <list default="true" id="8923b867-5150-4520-933d-51c505be438c" name="Default Changelist" comment="" />
+    <list default="true" id="1a894366-f06f-4076-be30-a2c849dde233" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../.dart_tool/flutter_build/07ddf8094e608620ee0a887e187dc33a/.filecache" beforeDir="false" afterPath="$PROJECT_DIR$/../.dart_tool/flutter_build/07ddf8094e608620ee0a887e187dc33a/.filecache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.dart_tool/flutter_build/07ddf8094e608620ee0a887e187dc33a/app.dill" beforeDir="false" afterPath="$PROJECT_DIR$/../.dart_tool/flutter_build/07ddf8094e608620ee0a887e187dc33a/app.dill" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.dart_tool/flutter_build/07ddf8094e608620ee0a887e187dc33a/arm64-v8a/app.so" beforeDir="false" afterPath="$PROJECT_DIR$/../.dart_tool/flutter_build/07ddf8094e608620ee0a887e187dc33a/arm64-v8a/app.so" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.dart_tool/flutter_build/07ddf8094e608620ee0a887e187dc33a/armeabi-v7a/app.so" beforeDir="false" afterPath="$PROJECT_DIR$/../.dart_tool/flutter_build/07ddf8094e608620ee0a887e187dc33a/armeabi-v7a/app.so" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.dart_tool/flutter_build/07ddf8094e608620ee0a887e187dc33a/kernel_snapshot.d" beforeDir="false" afterPath="$PROJECT_DIR$/../.dart_tool/flutter_build/07ddf8094e608620ee0a887e187dc33a/kernel_snapshot.d" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.dart_tool/flutter_build/07ddf8094e608620ee0a887e187dc33a/kernel_snapshot.stamp" beforeDir="false" afterPath="$PROJECT_DIR$/../.dart_tool/flutter_build/07ddf8094e608620ee0a887e187dc33a/kernel_snapshot.stamp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.dart_tool/flutter_build/07ddf8094e608620ee0a887e187dc33a/x86_64/app.so" beforeDir="false" afterPath="$PROJECT_DIR$/../.dart_tool/flutter_build/07ddf8094e608620ee0a887e187dc33a/x86_64/app.so" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.dart_tool/flutter_build/684155cc8f52f96da81cc2cbcc2e97d8/.filecache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.dart_tool/flutter_build/684155cc8f52f96da81cc2cbcc2e97d8/app.dill" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.dart_tool/flutter_build/684155cc8f52f96da81cc2cbcc2e97d8/debug_android_application.stamp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.dart_tool/flutter_build/684155cc8f52f96da81cc2cbcc2e97d8/flutter_assets.d" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.dart_tool/flutter_build/684155cc8f52f96da81cc2cbcc2e97d8/kernel_snapshot.d" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.dart_tool/flutter_build/684155cc8f52f96da81cc2cbcc2e97d8/kernel_snapshot.stamp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.dart_tool/package_config.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/../.flutter-plugins-dependencies" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/launch_background.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/launch_background.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../lib/main.dart" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,8 +44,24 @@
       </state>
     </system>
   </component>
-  <component name="ProjectId" id="1aH6fNiUeAKyBfydnotDXcxGMuL" />
+  <component name="GenerateSignedApkSettings">
+    <option name="KEY_STORE_PATH" value="D:\projects\csc_thane\key.jks" />
+    <option name="KEY_ALIAS" value="key0" />
+    <option name="REMEMBER_PASSWORDS" value="true" />
+    <option name="BUILD_TARGET_KEY" value="apk" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="1aYBLpefKKYK44gaPc0LNqKvMhq" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
+    <property name="ApkExportedModule" value="app" />
+    <property name="BundleExportedModule" value="app" />
+    <property name="ExportApk.ApkPath" value="D:\projects\csc_thane\android\app" />
+    <property name="ExportApk.BuildVariants" value="release" />
+    <property name="ExportApk.SignV1" value="true" />
+    <property name="ExportApk.SignV2" value="true" />
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
@@ -108,12 +142,23 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="8923b867-5150-4520-933d-51c505be438c" name="Default Changelist" comment="" />
-      <created>1586380274378</created>
+      <changelist id="1a894366-f06f-4076-be30-a2c849dde233" name="Default Changelist" comment="" />
+      <created>1586902593712</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1586380274378</updated>
+      <updated>1586902593712</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

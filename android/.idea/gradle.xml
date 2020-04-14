@@ -8,6 +8,9 @@
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="modules">
           <set>
+            <option value="$USER_HOME$/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/url_launcher-5.4.2/android" />
+            <option value="$USER_HOME$/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/url_launcher_macos-0.0.1+4/android" />
+            <option value="$USER_HOME$/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/url_launcher_web-0.1.1+1/android" />
             <option value="$USER_HOME$/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/webview_flutter-0.3.19+9/android" />
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />

@@ -1,9 +1,11 @@
 import 'dart:async';
-import 'dart:io';
+import 'dart:ui';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/painting.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 import 'package:webview_flutter/webview_flutter.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
@@ -30,40 +32,116 @@ class CustomWebView extends StatefulWidget {
 
 class _CustomWebView extends State<CustomWebView> {
   Completer<WebViewController> _controller = Completer<WebViewController>();
-  final url = 'https://sites.google.com/view/digitaldesh-co-in/home';
 
-  Future<void> _launchInWebViewWithDomStorage(String url) async {
-    if (await canLaunch(url)) {
-      launch(url,
-          forceSafariVC: true,
-          forceWebView: true,
-          enableDomStorage: true,
-          enableJavaScript: true).then((value) => Platform.isIOS ? exit(0) : SystemNavigator.pop(animated: true));
-    } else {
-      throw 'Could not launch $url';
-    }
+  final url = 'https://sites.google.com/view/digitaldesh-co-in/home';
+  String actionURL;
+  JavascriptChannel _toasterJavascriptChannel(BuildContext context) {
+    return JavascriptChannel(
+        name: 'Toaster',
+        onMessageReceived: (JavascriptMessage message) {
+          Scaffold.of(context).showSnackBar(
+            SnackBar(content: Text(message.message)),
+          );
+        });
   }
 
-  Widget _launchStatus(BuildContext context, AsyncSnapshot<void> snapshot) {
-    if (snapshot.hasError) {
-      return Text('Error: ${snapshot.error}');
-    } else {
-      return const Text('open');
-    }
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    actionURL = url;
   }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: null,
-        body: Column(
-          children: <Widget>[
-            const Padding(padding: EdgeInsets.all(16.0)),
-            FutureBuilder<void>(
-                future: _launchInWebViewWithDomStorage(url),
-                builder: _launchStatus),
-          ],
+    return WillPopScope(
+        onWillPop: () => _exitApp(context),
+        child: Scaffold(
+          extendBodyBehindAppBar: true,
+          body: Container(
+              padding: EdgeInsets.only(top: 24.0),
+              child: Stack(
+                children: <Widget>[
+                  WebView(
+                    initialUrl: actionURL,
+                    javascriptMode: JavascriptMode.unrestricted,
+                    onWebViewCreated: (WebViewController webViewController) {
+                      _controller.complete(webViewController);
+                    },
+                    // TODO(iskakaushik): Remove this when collection literals makes it to stable.
+                    // ignore: prefer_collection_literals
+                    javascriptChannels: <JavascriptChannel>[
+                      _toasterJavascriptChannel(context),
+                    ].toSet(),
+                    onPageStarted: (String url) {
+                      print('Page started loading: $url');
+                    },
+                    onPageFinished: (String url) {
+                      print('Page finished loading: $url');
+                    },
+                    gestureNavigationEnabled: true,
+                  ),
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: <Widget>[
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          Text("Developed by developer idblfs")
+                        ],
+                      )
+                    ],
+                  )
+                ],
+              )),
+          floatingActionButton: FloatingActionButton(
+            onPressed: () {
+              setState(() {
+                _controller.future.then((value) => value.loadUrl(actionURL));
+              });
+            },
+            autofocus: true,
+            child: Icon(Icons.home),
+            backgroundColor: Colors.blueAccent,
+            splashColor: Colors.deepOrange,
+          ),
         ));
+  }
+
+  Future<bool> _exitApp(BuildContext context) async {
+    var webViewController = await _controller.future;
+    if (webViewController.canGoBack() != null) {
+      webViewController.currentUrl().then((value) =>
+          _matchURL(value) ? _showDialogue() : webViewController.goBack());
+    }
+    return false;
+  }
+
+  bool _matchURL(value) {
+    if ((url == value)) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  Future<bool> _showDialogue() {
+    return showDialog(
+          context: context,
+          builder: (context) => AlertDialog(
+            title: new Text('Are you sure?'),
+            content: new Text('Do you want to exit an App'),
+            actions: <Widget>[
+              FlatButton(
+                  onPressed: () => SystemNavigator.pop(),
+                  child: Text("Yes")),
+              FlatButton(
+                  onPressed: () => Navigator.of(context).pop(true),
+                  child: Text('No'))
+            ],
+          ),
+        ) ??
+        false;
   }
 }
 
