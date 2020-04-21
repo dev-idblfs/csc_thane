@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'dart:ui';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
@@ -59,41 +58,21 @@ class _CustomWebView extends State<CustomWebView> {
         child: Scaffold(
           extendBodyBehindAppBar: true,
           body: Container(
-              padding: EdgeInsets.only(top: 24.0),
-              child: Stack(
-                children: <Widget>[
-                  WebView(
-                    initialUrl: actionURL,
-                    javascriptMode: JavascriptMode.unrestricted,
-                    onWebViewCreated: (WebViewController webViewController) {
-                      _controller.complete(webViewController);
-                    },
-                    // TODO(iskakaushik): Remove this when collection literals makes it to stable.
-                    // ignore: prefer_collection_literals
-                    javascriptChannels: <JavascriptChannel>[
-                      _toasterJavascriptChannel(context),
-                    ].toSet(),
-                    onPageStarted: (String url) {
-                      print('Page started loading: $url');
-                    },
-                    onPageFinished: (String url) {
-                      print('Page finished loading: $url');
-                    },
-                    gestureNavigationEnabled: true,
-                  ),
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: <Widget>[
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: <Widget>[
-                          Text("Developed by developer idblfs")
-                        ],
-                      )
-                    ],
-                  )
-                ],
-              )),
+            padding: EdgeInsets.only(top: 24.0),
+            child: WebView(
+              initialUrl: actionURL,
+              javascriptMode: JavascriptMode.unrestricted,
+              onWebViewCreated: (WebViewController webViewController) {
+                _controller.complete(webViewController);
+              },
+              // TODO(iskakaushik): Remove this when collection literals makes it to stable.
+              // ignore: prefer_collection_literals
+              javascriptChannels: <JavascriptChannel>[
+                _toasterJavascriptChannel(context),
+              ].toSet(),
+              gestureNavigationEnabled: true,
+            ),
+          ),
           floatingActionButton: FloatingActionButton(
             onPressed: () {
               setState(() {
@@ -133,8 +112,7 @@ class _CustomWebView extends State<CustomWebView> {
             content: new Text('Do you want to exit an App'),
             actions: <Widget>[
               FlatButton(
-                  onPressed: () => SystemNavigator.pop(),
-                  child: Text("Yes")),
+                  onPressed: () => \\][p['][']]]]]]]]]]]]]]]]]]]]]]]]]]]\.pop(), child: Text("Yes")),
               FlatButton(
                   onPressed: () => Navigator.of(context).pop(true),
                   child: Text('No'))
