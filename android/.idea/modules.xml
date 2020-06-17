@@ -5,7 +5,6 @@
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/android.iml" filepath="$PROJECT_DIR$/.idea/modules/android.iml" group="android" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/app.iml" group="android/app" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/1886603934/flutter_inappwebview.iml" filepath="$PROJECT_DIR$/.idea/modules/1886603934/flutter_inappwebview.iml" group="android/flutter_inappwebview" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-2095272401/webview_flutter.iml" filepath="$PROJECT_DIR$/.idea/modules/-2095272401/webview_flutter.iml" group="android/webview_flutter" />
     </modules>
   </component>
 </project>
