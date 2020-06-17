@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData.light(),
       home: CustomWebView(title: title),
       debugShowCheckedModeBanner: false,
-      darkTheme: ThemeData.dark()
+      darkTheme: ThemeData.light()
     );
   }
 }
