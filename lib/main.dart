@@ -1,9 +1,11 @@
 import 'dart:async';
+import 'dart:io';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter/rendering.dart';
-import 'package:webview_flutter/webview_flutter.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
@@ -15,7 +17,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData.light(),
       home: CustomWebView(title: title),
       debugShowCheckedModeBanner: false,
-      darkTheme: ThemeData.light(),
+      darkTheme: ThemeData.dark()
     );
   }
 }
@@ -29,19 +31,10 @@ class CustomWebView extends StatefulWidget {
 }
 
 class _CustomWebView extends State<CustomWebView> {
-  Completer<WebViewController> _controller = Completer<WebViewController>();
+  InAppWebViewController _webViewController;
 
   final url = 'https://sites.google.com/view/digitaldesh-co-in/home';
   String actionURL;
-  JavascriptChannel _toasterJavascriptChannel(BuildContext context) {
-    return JavascriptChannel(
-        name: 'Toaster',
-        onMessageReceived: (JavascriptMessage message) {
-          Scaffold.of(context).showSnackBar(
-            SnackBar(content: Text(message.message)),
-          );
-        });
-  }
 
   @override
   void initState() {
@@ -57,37 +50,44 @@ class _CustomWebView extends State<CustomWebView> {
           extendBodyBehindAppBar: true,
           body: Container(
             padding: EdgeInsets.only(top: 24.0),
-            child: WebView(
+            child: InAppWebView(
               initialUrl: actionURL,
-              javascriptMode: JavascriptMode.unrestricted,
-              onWebViewCreated: (WebViewController webViewController) {
-                _controller.complete(webViewController);
+              initialOptions: InAppWebViewGroupOptions(
+                  crossPlatform: InAppWebViewOptions(
+                debuggingEnabled: true,
+                cacheEnabled: true,
+                javaScriptEnabled: true,
+              )),
+              onWebViewCreated: (InAppWebViewController _controller) {
+                _webViewController = _controller;
               },
-              // ignore: prefer_collection_literals
-              javascriptChannels: <JavascriptChannel>[
-                _toasterJavascriptChannel(context),
-              ].toSet(),
-              gestureNavigationEnabled: true,
             ),
           ),
-          floatingActionButton: FloatingActionButton(
-            onPressed: () {
-              setState(() {
-                _controller.future.then((value) => value.loadUrl(actionURL));
-              });
-            },
-            autofocus: true,
-            child: Icon(Icons.home),
-            backgroundColor: Colors.blueAccent,
-            splashColor: Colors.deepOrange,
+          floatingActionButton: Row(
+            children: <Widget>[
+              Padding(
+                padding: EdgeInsets.only(left: 35.0),
+                child: FloatingActionButton(
+                  onPressed: () {
+                    setState(() {
+                      _webViewController.loadUrl(url: actionURL);
+                    });
+                  },
+                  autofocus: true,
+                  child: Icon(Icons.home),
+                  backgroundColor: Colors.blueAccent,
+                  splashColor: Colors.deepOrange,
+                ),
+              )
+            ],
           ),
         ));
   }
 
   Future<bool> _exitApp(BuildContext context) async {
-    var webViewController = await _controller.future;
+    var webViewController = _webViewController;
     if (webViewController.canGoBack() != null) {
-      webViewController.currentUrl().then((value) =>
+      webViewController.getUrl().then((value) =>
           _matchURL(value) ? _showDialogue() : webViewController.goBack());
     }
     return false;
@@ -109,9 +109,14 @@ class _CustomWebView extends State<CustomWebView> {
             content: new Text('Do you want to exit an App'),
             actions: <Widget>[
               FlatButton(
-                  onPressed: () => Navigator.of(context).pop(false), child: Text("Yes")),
+                  onPressed: () {
+                    Platform.isAndroid
+                        ? SystemNavigator.pop(animated: true)
+                        : Navigator.of(context).pop(true);
+                  },
+                  child: Text("Yes")),
               FlatButton(
-                  onPressed: () => Navigator.of(context).pop(true),
+                  onPressed: () => Navigator.of(context).pop(false),
                   child: Text('No'))
             ],
           ),
