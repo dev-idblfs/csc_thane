@@ -3,7 +3,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter/rendering.dart';
-import 'package:flutter/services.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
 class MyApp extends StatelessWidget {
@@ -46,7 +45,6 @@ class _CustomWebView extends State<CustomWebView> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     actionURL = url;
   }
@@ -65,7 +63,6 @@ class _CustomWebView extends State<CustomWebView> {
               onWebViewCreated: (WebViewController webViewController) {
                 _controller.complete(webViewController);
               },
-              // TODO(iskakaushik): Remove this when collection literals makes it to stable.
               // ignore: prefer_collection_literals
               javascriptChannels: <JavascriptChannel>[
                 _toasterJavascriptChannel(context),
@@ -112,7 +109,7 @@ class _CustomWebView extends State<CustomWebView> {
             content: new Text('Do you want to exit an App'),
             actions: <Widget>[
               FlatButton(
-                  onPressed: () => \\][p['][']]]]]]]]]]]]]]]]]]]]]]]]]]]\.pop(), child: Text("Yes")),
+                  onPressed: () => Navigator.of(context).pop(false), child: Text("Yes")),
               FlatButton(
                   onPressed: () => Navigator.of(context).pop(true),
                   child: Text('No'))
@@ -123,6 +120,7 @@ class _CustomWebView extends State<CustomWebView> {
   }
 }
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(MyApp());
 }
